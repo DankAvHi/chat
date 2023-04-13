@@ -26,3 +26,9 @@ dist
 .env
 .env.*
 !.env.example
+
+#build
+build
+
+#Security
+*.key
