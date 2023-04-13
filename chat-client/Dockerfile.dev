@@ -1,0 +1,13 @@
+FROM node:latest as build
+
+RUN npm i -g pnpm
+
+WORKDIR /usr/app
+
+COPY package*.json ./
+COPY pnpm-lock.yaml ./
+
+
+RUN pnpm install
+COPY . .
+CMD ["pnpm", "run", "dev"]
