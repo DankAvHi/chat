@@ -1,5 +1,5 @@
-import { AuthPage, ChatPage, ProfilePage, NotFoundPage } from "@/pages";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { AuthPage, ChatPage, NotFoundPage, ProfilePage } from "@/pages";
 import App from "./App";
 
 export const Router = () => {

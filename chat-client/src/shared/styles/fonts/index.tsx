@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { sansSerifFontName, sansSerifFontMixin } from "./sansSerif.font";
+import { sansSerifFontMixin, sansSerifFontName } from "./sansSerif.font";
 
 export const fontsMixins = css`
     ${sansSerifFontMixin}
