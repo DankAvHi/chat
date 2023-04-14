@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-export const sansSerifFontName = "Open Sans";
+export const sansSerifFontName = "sans-serif";
 
 export const sansSerifFontMixin = css``;
 
