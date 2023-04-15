@@ -1,0 +1,8 @@
+services:
+    frontend:
+        restart: unless-stopped
+        build: chat-client
+        volumes:
+            - ./chat-client/docker/nginx/production:/etc/nginx/conf.d
+        ports:
+            - "80:80"
