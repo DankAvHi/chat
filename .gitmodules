@@ -1,3 +1,0 @@
-[submodule "chat-server"]
-	path = chat-server
-	url = https://github.com/DankAvHi/chat-server.git
