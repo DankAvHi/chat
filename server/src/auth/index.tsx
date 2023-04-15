@@ -2,7 +2,8 @@ import jwt, { SignOptions } from "jsonwebtoken";
 import { config } from "../config";
 
 export const signJwt = (
-    payload: Object,
+    // eslint-disable-next-line
+    payload: {},
     key: "JWT_ACCES_PRIVATE_KEY" | "JWT_REFRESH_PRIVATE_KEY",
     options: SignOptions = {},
 ) => {
