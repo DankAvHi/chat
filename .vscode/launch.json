@@ -23,9 +23,9 @@
                 "uriFormat": "http://localhost:%s",
                 "killOnServerStop": true,
                 "action": "debugWithChrome",
-                "webRoot": "${workspaceFolder}/chat-client"
+                "webRoot": "${workspaceFolder}/client"
             },
-            "cwd": "${workspaceFolder}/chat-client"
+            "cwd": "${workspaceFolder}/client"
         }
     ],
     "compounds": [

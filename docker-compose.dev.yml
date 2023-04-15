@@ -2,10 +2,10 @@ services:
     frontend:
         restart: always
         build:
-            context: chat-client
+            context: client
             dockerfile: Dockerfile.dev
         volumes:
-            - ./chat-client:/usr/app/
+            - ./client:/usr/app/
             - /usr/app/node_modules
         ports:
             - "3000:3000"
