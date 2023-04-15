@@ -5,11 +5,11 @@
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
             "name": "Debug Server",
-            "program": "${workspaceFolder}/chat-server/src/index.ts",
+            "program": "${workspaceFolder}/server/src/index.ts",
             "request": "launch",
             "restart": true,
             "runtimeExecutable": "nodemon",
-            "envFile": "${workspaceFolder}/chat-server/.env.development",
+            "envFile": "${workspaceFolder}/server/.env.development",
             "skipFiles": ["<node_internals>/**"],
             "type": "node"
         },

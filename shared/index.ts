@@ -1,1 +1,1 @@
-export type { AppRouter } from "../chat-server/src/tRPC/router";
+export type { AppRouter } from "../server/src/tRPC/router";
