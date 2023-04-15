@@ -2,8 +2,21 @@ import { filterObject } from "../helpers/filterObject";
 import { errorLogger } from "../logger";
 import { Config, EnvConfig } from "./config.d";
 
-const requiredFields = ["DATABASE_URL"];
-const notRequiredFields = ["PORT", "HOST"];
+const requiredFields = [
+    "DATABASE_URL",
+    "JWT_ACCES_PRIVATE_KEY",
+    "JWT_ACCES_PUBLIC_KEY",
+    "JWT_REFRESH_PRIVATE_KEY",
+    "JWT_REFRESH_PUBLIC_KEY",
+];
+const notRequiredFields = [
+    "PORT",
+    "HOST",
+    "JWT_ACCES_EXPIRED",
+    "JWT_REFRESH_EXPIRED",
+    "REDIS_CACHE_EXPIRED",
+    "WHITELISTED_DOMAINS",
+];
 
 const envFields = Object.keys(process.env).filter(
     (field) => requiredFields.includes(field) || notRequiredFields.includes(field),
@@ -39,8 +52,11 @@ const generateConfig = () => {
     const config: Config = {
         ...envConfig,
         isDevelopment: process.env.NODE_ENV == "development",
-        PORT: envConfig.PORT || 8000,
+        PORT: Number(envConfig.PORT) || 8000,
         HOST: envConfig.HOST || "localhost",
+        JWT_ACCES_EXPIRED: Number(envConfig.JWT_ACCES_EXPIRED) || 15,
+        JWT_REFRESH_EXPIRED: Number(envConfig.JWT_REFRESH_EXPIRED) || 60,
+        REDIS_CACHE_EXPIRED: Number(envConfig.REDIS_CACHE_EXPIRED) || 60,
     };
     return config;
 };
