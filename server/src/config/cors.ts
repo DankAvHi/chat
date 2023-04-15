@@ -1,9 +1,10 @@
 import { CorsOptions } from "cors";
 import { errorLogger } from "../logger";
+import { config } from "./config";
 
 export const corsConfig: CorsOptions = {
     origin: function (origin: string | undefined, callback) {
-        const whitelist = process.env.WHITELISTED_DOMAINS ? process.env.WHITELISTED_DOMAINS.split(",") : [];
+        const whitelist = config.WHITELISTED_DOMAINS ? config.WHITELISTED_DOMAINS.split(",") : [];
 
         if (!origin || whitelist.indexOf(origin) !== -1) {
             callback(null, true);
