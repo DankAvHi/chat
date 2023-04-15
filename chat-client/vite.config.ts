@@ -7,7 +7,9 @@ export default ({ mode }) => {
     return defineConfig({
         plugins: [react()],
 
-        server: { port: Number(process.env.VITE_PORT) || 3000 },
+        server: {
+            port: Number(process.env.VITE_PORT) || 3000,
+        },
         resolve: {
             alias: {
                 "@": path.resolve(__dirname, "./src"),
