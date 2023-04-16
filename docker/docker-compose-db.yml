@@ -6,9 +6,9 @@ services:
         hostname: mongodb-primary
         image: mongo:4.4
         restart: always
-        build: ./docker/db
+        build: ./db
         volumes:
-            - ./docker/db/data/primary:/data/db
+            - ./db/data/primary:/data/db
         ports:
             - "27017:27017"
         depends_on:
@@ -18,7 +18,7 @@ services:
             - mongodb-secondary-0
             - mongodb-secondary-1
         networks:
-            - node-network
+            - mongodb-network
         command: ["--bind_ip_all", "--replSet", "rs0", "--auth", "--keyFile", "/data/replica.key"]
         environment:
             - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USERNAME}
@@ -29,13 +29,13 @@ services:
         hostname: mongodb-secondary-0
         image: mongo:4.4
         restart: always
-        build: ./docker/db
+        build: ./db
         volumes:
-            - ./docker/db/data/secondary-0:/data/db
+            - ./db/data/secondary-0:/data/db
         ports:
             - "27018:27017"
         networks:
-            - node-network
+            - mongodb-network
         command: ["--bind_ip_all", "--replSet", "rs0", "--auth", "--keyFile", "/data/replica.key"]
         environment:
             - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USERNAME}
@@ -46,13 +46,13 @@ services:
         hostname: mongodb-secondary-1
         image: mongo:4.4
         restart: always
-        build: ./docker/db
+        build: ./db
         volumes:
-            - ./docker/db/data/secondary-1:/data/db
+            - ./db/data/secondary-1:/data/db
         ports:
             - "27019:27017"
         networks:
-            - node-network
+            - mongodb-network
         command: ["--bind_ip_all", "--replSet", "rs0", "--auth", "--keyFile", "/data/replica.key"]
         environment:
             - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USERNAME}
@@ -66,10 +66,10 @@ services:
             - mongodb-secondary-0
             - mongodb-secondary-1
         volumes:
-            - ./docker/db/rs-init.sh:/docker-entrypoint-initdb.d/rs-init.sh
+            - ./db/rs-init.sh:/docker-entrypoint-initdb.d/rs-init.sh
         entrypoint: ["bash", "/docker-entrypoint-initdb.d/rs-init.sh"]
         networks:
-            - node-network
+            - mongodb-network
 networks:
-    node-network:
+    mongodb-network:
         driver: bridge
