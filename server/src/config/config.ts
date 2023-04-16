@@ -8,6 +8,9 @@ const requiredFields = [
     "JWT_ACCES_PUBLIC_KEY",
     "JWT_REFRESH_PRIVATE_KEY",
     "JWT_REFRESH_PUBLIC_KEY",
+    "REDIS_HOST",
+    "REDIS_PORT",
+    "REDIS_PASSWORD",
 ];
 const notRequiredFields = [
     "PORT",

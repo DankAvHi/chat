@@ -9,8 +9,11 @@ export type EnvConfig = {
     JWT_REFRESH_PUBLIC_KEY: string;
     JWT_ACCES_EXPIRED: number;
     JWT_REFRESH_EXPIRED: number;
+    REDIS_HOST: string;
+    REDIS_PORT: number;
+    REDIS_PASSWORD: string;
     REDIS_CACHE_EXPIRED: number;
-    WHITELISTED_DOMAINS: number;
+    WHITELISTED_DOMAINS: string;
     [key: string]: string | number | undefined | boolean;
 };
 
