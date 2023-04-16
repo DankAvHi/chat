@@ -34,3 +34,7 @@ dist-ssr
 
 #Security
 *.key
+
+#Docker data
+docker/db/data
+docker/redis/data
