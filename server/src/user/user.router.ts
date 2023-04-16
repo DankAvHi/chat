@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { router, publicProcedure } from "../../tRPC";
+import { router, publicProcedure } from "../tRPC";
 import { TRPCError } from "@trpc/server";
 import { createUser, getUser, getUserList } from "./user.service";
 

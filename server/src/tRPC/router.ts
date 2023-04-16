@@ -1,4 +1,4 @@
-import { userRouter } from "../entities";
+import { userRouter } from "../user";
 import { router } from "./tRPC";
 
 export const appRouter = router({
