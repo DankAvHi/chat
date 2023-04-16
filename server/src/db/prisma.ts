@@ -4,7 +4,7 @@ import { errorLogger } from "../logger";
 
 export const prisma = new PrismaClient();
 
-export const checkDatabaseConnection = async () => {
+export const checkPrismaDatabaseConnection = async () => {
     await prisma
         .$connect()
         .then(() => succesLogger(`Connected to database`))
