@@ -1,8 +1,20 @@
 services:
-    frontend:
-        restart: unless-stopped
-        build: client
-        volumes:
-            - ./client/docker/nginx/production:/etc/nginx/conf.d
-        ports:
-            - "80:80"
+    mongodb-primary:
+        extends:
+            file: "./docker/docker-compose-db.yml"
+            service: mongodb-primary
+    mongodb-secondary-0:
+        extends:
+            file: "./docker/docker-compose-db.yml"
+            service: mongodb-secondary-0
+    mongodb-secondary-1:
+        extends:
+            file: "./docker/docker-compose-db.yml"
+            service: mongodb-secondary-1
+    redis:
+        extends:
+            file: "./docker/docker-compose-redis.yml"
+            service: redis
+networks:
+    mongodb-network:
+        driver: bridge
