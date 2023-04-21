@@ -9,6 +9,10 @@ export const AuthStyles = {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+
+    @media screen and (min-width: 768px) {
+      align-items: center;
+    }
   `,
 
   Form: styled.form`
