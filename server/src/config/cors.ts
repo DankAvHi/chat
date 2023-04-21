@@ -1,6 +1,6 @@
 import { CorsOptions } from "cors";
-import { errorLogger } from "../logger";
 import { config } from "./config";
+import { logger } from "../logger";
 
 export const corsConfig: CorsOptions = {
   origin: function (origin: string | undefined, callback) {
@@ -12,7 +12,7 @@ export const corsConfig: CorsOptions = {
       callback(null, true);
     } else {
       const errorString = `\nAttempt to fetch from unknown origin: ${origin}\n`;
-      errorLogger(errorString);
+      logger.error(errorString);
       callback(new Error(errorString), false);
     }
   },

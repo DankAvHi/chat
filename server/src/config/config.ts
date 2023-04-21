@@ -1,5 +1,4 @@
 import { filterObject } from "../helpers/filterObject";
-import { errorLogger } from "../logger";
 import { Config, EnvConfig } from "./config.d";
 
 const requiredFields = [
@@ -49,7 +48,7 @@ const generateConfig = () => {
     const errorString = `Mising required fields in .env file:[${notExistedRequiredFields.map(
       (field, index) => (index === 0 ? `${field}` : ` ${field}`),
     )}]`;
-    errorLogger(errorString);
+    console.error(errorString);
     throw new Error(errorString);
   }
 

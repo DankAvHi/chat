@@ -1,7 +1,6 @@
 import { createClient } from "redis";
 import { config } from "../config";
-import { errorLogger } from "../logger";
-import { succesLogger } from "../logger";
+import { logger } from "../logger";
 
 const redisClient = createClient({
   url: `redis://${config.REDIS_HOST}:${config.REDIS_PORT}`,
@@ -10,12 +9,12 @@ const redisClient = createClient({
 
 export const connectRedis = async () => {
   await redisClient.connect().catch((err) => {
-    errorLogger(err);
+    logger.error(err);
     throw err;
   });
-  succesLogger(`Connected to Redis cache db`);
+  logger.info(`Connected to Redis cache db`);
 
-  redisClient.on("error", (error) => errorLogger(error as string));
+  redisClient.on("error", (error) => logger.error(error as string));
 };
 
 export { redisClient };

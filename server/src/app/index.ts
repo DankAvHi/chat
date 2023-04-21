@@ -6,10 +6,12 @@ import * as trpcExpress from "@trpc/server/adapters/express";
 import { appRouter, createContext } from "../tRPC";
 import cors from "cors";
 import { connectRedis } from "../db";
+import { morganMiddleware } from "../logger";
 
 const app = express();
 
 app.use(cors(corsConfig));
+app.use(morganMiddleware);
 
 app.use(
   "/api",

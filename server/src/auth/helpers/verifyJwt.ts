@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { config } from "../../config";
-import { errorLogger } from "../../logger";
+import { logger } from "../../logger";
 
 export const verifyJwt = <T>(
   token: string,
@@ -10,7 +10,7 @@ export const verifyJwt = <T>(
     const publicKey = Buffer.from(config[key], "base64").toString("ascii");
     return jwt.verify(token, publicKey) as T;
   } catch (error) {
-    errorLogger(error as string);
+    logger.error(error as string);
     return null;
   }
 };
