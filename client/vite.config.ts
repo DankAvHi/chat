@@ -13,6 +13,7 @@ export default ({ mode }) => {
         resolve: {
             alias: {
                 "@": path.resolve(__dirname, "./src"),
+                "@project": path.resolve(__dirname, "../"),
             },
         },
     });
