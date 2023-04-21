@@ -1,10 +1,20 @@
+import { Prisma, user } from "@prisma/client";
 import { prisma } from "../db/prisma";
 
-export const createUser = async (login: string, password: string) =>
-    await prisma.user.create({ data: { login, password } });
+export const createUser = async (input: Prisma.userCreateInput) =>
+    await prisma.user.create({ data: input });
 
-export const getUser = async (id: string) => await prisma.user.findUnique({ where: { id } });
+export const findUser = async (
+    where: Prisma.userWhereInput,
+    select?: Prisma.userSelect,
+) => (await prisma.user.findFirst({ where, select })) as user | null;
 
-export const getUserList = async () => await prisma.user.findMany();
+export const findUserList = async (
+    where?: Prisma.userWhereInput,
+    select?: Prisma.userSelect,
+) => (await prisma.user.findMany({ where, select })) as user[];
 
-export const removeUser = async (id: string) => await prisma.user.delete({ where: { id } });
+export const findUniqueUser = async (
+    where: Prisma.userWhereUniqueInput,
+    select?: Prisma.userSelect,
+) => (await prisma.user.findUnique({ where, select })) as user | null;
