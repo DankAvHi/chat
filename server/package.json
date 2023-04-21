@@ -10,7 +10,7 @@
     "db-sync:dev": "pnpm run db-pull:dev && pnpm run db-generate:dev",
     "start:dev": "dotenv -e .env.development nodemon src/index.ts",
     "start": "dotenv -e .env pnpm run build && dotenv -e .env node build/index.bundle.js",
-    "build": "node build.mjs",
+    "build": "dotenv -e .env  node build.mjs",
     "format": "prettier --write \"./**/*.(ts|tsx|json)\"",
     "lint": "eslint \"./**/*.tsx\" \"./**/*.ts\"",
     "lint:fix": "eslint \"./**/*.tsx\" \"./**/*.ts\" --fix"
