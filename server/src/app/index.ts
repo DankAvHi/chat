@@ -11,9 +11,14 @@ const app = express();
 
 app.use(cors(corsConfig));
 
-app.use("/api", trpcExpress.createExpressMiddleware({ router: appRouter, createContext }));
+app.use(
+  "/api",
+  trpcExpress.createExpressMiddleware({ router: appRouter, createContext }),
+);
 
 export const startApp = () =>
-    checkPrismaDatabaseConnection()
-        .then(async () => await connectRedis())
-        .then(() => app.listen(config.PORT, startupLogger(config.HOST, config.PORT)));
+  checkPrismaDatabaseConnection()
+    .then(async () => await connectRedis())
+    .then(() =>
+      app.listen(config.PORT, startupLogger(config.HOST, config.PORT)),
+    );

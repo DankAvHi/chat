@@ -4,9 +4,9 @@ import ReactDOM from "react-dom/client";
 import { Router } from "./app/Router";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-    <React.StrictMode>
-        <FluentProvider theme={webLightTheme}>
-            <Router />
-        </FluentProvider>
-    </React.StrictMode>,
+  <React.StrictMode>
+    <FluentProvider theme={webLightTheme}>
+      <Router />
+    </FluentProvider>
+  </React.StrictMode>,
 );

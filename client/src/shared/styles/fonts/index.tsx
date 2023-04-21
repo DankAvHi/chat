@@ -2,7 +2,7 @@ import { css } from "styled-components";
 import { sansSerifFontMixin, sansSerifFontName } from "./sansSerif.font";
 
 export const fontsMixins = css`
-    ${sansSerifFontMixin}
+  ${sansSerifFontMixin}
 `;
 
 export const fontsNames = { sansSerifFontName };

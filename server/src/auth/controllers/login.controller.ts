@@ -5,18 +5,18 @@ import { findUniqueUser } from "../../user/user.service";
 import { comparePassword } from "../helpers/comparePassword";
 
 export const login = publicProcedure
-    .input(loginSchema)
-    .mutation(async ({ input }) => {
-        const { login, password } = input;
+  .input(loginSchema)
+  .mutation(async ({ input }) => {
+    const { login, password } = input;
 
-        const user = findUniqueUser({ login });
+    const user = findUniqueUser({ login });
 
-        if (!user || !comparePassword(login, password)) {
-            throw new TRPCError({
-                code: "UNAUTHORIZED",
-                message: `Login or password are incorect`,
-            });
-        }
+    if (!user || !comparePassword(login, password)) {
+      throw new TRPCError({
+        code: "UNAUTHORIZED",
+        message: `Login or password are incorect`,
+      });
+    }
 
-        return { status: "succes" };
-    });
+    return { status: "succes" };
+  });
