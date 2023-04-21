@@ -20,7 +20,6 @@ export const GlobalStyles = styled.createGlobalStyle`
         font-size: ${stylesVariables.appFontSize};
         font-weight: ${stylesVariables.appFontWeight};
         text-decoration: none;
-        color: ${colors.black00};
     }
 
     a,
@@ -48,7 +47,7 @@ export const GlobalStyles = styled.createGlobalStyle`
 
     html,
     body {
-        min-height: 100%;
+        min-height: 100svh;
 
         background-color: ${stylesVariables.appBackgroundColor};
     }
