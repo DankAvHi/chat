@@ -18,6 +18,9 @@ app.use(
   trpcExpress.createExpressMiddleware({ router: appRouter, createContext }),
 );
 
+app.use(express.static(config.clientPath));
+app.get("*", (req, res) => res.sendFile(config.clientIndexFile));
+
 export const startApp = () =>
   checkPrismaDatabaseConnection()
     .then(async () => await connectRedis())
