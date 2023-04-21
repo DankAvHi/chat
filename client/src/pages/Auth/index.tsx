@@ -1,3 +1,1 @@
-export const AuthPage = () => {
-    return <>auth</>;
-};
+export { AuthPage } from "./Auth";
