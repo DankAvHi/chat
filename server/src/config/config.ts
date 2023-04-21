@@ -71,6 +71,8 @@ const generateConfig = () => {
     JWT_ACCES_EXPIRED: Number(envConfig.JWT_ACCES_EXPIRED) || 15,
     JWT_REFRESH_EXPIRED: Number(envConfig.JWT_REFRESH_EXPIRED) || 60,
     REDIS_CACHE_EXPIRED: Number(envConfig.REDIS_CACHE_EXPIRED) || 60,
+    clientPath: path.resolve(process.cwd(), "../client/dist"),
+    clientIndexFile: path.resolve(process.cwd(), "../client/dist/index.html"),
   };
   return config;
 };

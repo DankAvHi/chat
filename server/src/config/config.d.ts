@@ -19,6 +19,8 @@ export type EnvConfig = {
 
 export type Config = EnvConfig & {
   isDevelopment: boolean;
+  clientPath: string;
+  clientIndexFile: string;
 
   [key: string]: string | number | undefined | boolean;
 };
