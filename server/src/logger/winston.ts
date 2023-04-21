@@ -9,7 +9,7 @@ const levels = {
   debug: 4,
 };
 
-const level = config.isDevelopment ? "debug" : "warn";
+const level = config.isDevelopment ? "debug" : "debug";
 
 const colors = {
   error: "red",

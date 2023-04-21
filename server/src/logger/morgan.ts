@@ -6,7 +6,7 @@ const stream = {
   write: (message: string) => logger.http(message),
 };
 
-const skip = () => !config.isDevelopment;
+const skip = () => false;
 
 export const morganMiddleware = morgan(
   config.isDevelopment ? "dev" : "common",
