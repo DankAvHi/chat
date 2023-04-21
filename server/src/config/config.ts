@@ -1,5 +1,13 @@
 import { filterObject } from "../helpers/filterObject";
 import { Config, EnvConfig } from "./config.d";
+import path from "path";
+import dotenv from "dotenv";
+
+if (!process.env.NODE_ENV) {
+  dotenv.config({
+    path: path.resolve(process.cwd(), ".env"),
+  });
+}
 
 const requiredFields = [
   "DATABASE_URL",
