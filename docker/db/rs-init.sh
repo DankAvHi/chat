@@ -5,6 +5,7 @@ set -e
 echo "****** Starting replica set init script! ******"
 
 DELAY=15
+
 mongo --host mongodb-primary:27017 -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --authenticationDatabase admin <<EOF
 var config = {
     "_id": "rs0",

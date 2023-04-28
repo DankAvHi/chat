@@ -11,6 +11,10 @@ services:
         extends:
             file: "./docker/docker-compose-db.yml"
             service: mongodb-secondary-1
+    mongodb-init:
+        extends:
+            file: "./docker/docker-compose-db.yml"
+            service: mongoinit
     redis:
         extends:
             file: "./docker/docker-compose-redis.yml"
