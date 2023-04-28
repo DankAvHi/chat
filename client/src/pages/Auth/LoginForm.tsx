@@ -1,4 +1,3 @@
-import { Input, Button, Field } from "@fluentui/react-components";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { LoginUserInput, loginSchema } from "@project/shared";
@@ -17,7 +16,7 @@ export const LoginForm = () => {
 
   return (
     <S.Form onSubmit={handleSubmit(formOnSubmitHandler)}>
-      <Field label={`Enter your login`}>
+      {/* <Field label={`Enter your login`}>
         <Input
           placeholder="login"
           required={true}
@@ -40,7 +39,7 @@ export const LoginForm = () => {
 
       <Button appearance="primary" type="submit">
         {`Login`}
-      </Button>
+      </Button> */}
     </S.Form>
   );
 };

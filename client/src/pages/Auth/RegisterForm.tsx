@@ -1,4 +1,3 @@
-import { Input, Button, Field } from "@fluentui/react-components";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { trpc } from "@/shared";
@@ -20,7 +19,7 @@ export const RegisterForm = () => {
 
   return (
     <S.Form onSubmit={handleSubmit(formOnSubmitHandler)}>
-      <Field
+      {/* <Field
         label={`Enter your login`}
         validationState={isError ? "error" : "success"}
         validationMessage={error?.message}
@@ -60,7 +59,7 @@ export const RegisterForm = () => {
 
       <Button appearance="primary" type="submit">
         {`Register`}
-      </Button>
+      </Button> */}
     </S.Form>
   );
 };

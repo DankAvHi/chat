@@ -1,4 +1,3 @@
-import { makeStyles } from "@fluentui/react-components";
 import styled from "styled-components";
 
 export const AuthStyles = {
@@ -21,16 +20,3 @@ export const AuthStyles = {
     gap: 12px;
   `,
 };
-
-export const useAuthFluentStyles = makeStyles({
-  Card: {
-    paddingRight: "12px",
-    paddingLeft: "12px",
-    paddingTop: "12px",
-    paddingBottom: "12px",
-  },
-  Heading: {
-    paddingBottom: "18px",
-    paddingTop: "18px",
-  },
-});
