@@ -4,19 +4,15 @@ services:
     mongodb-primary:
         container_name: mongodb-primary
         hostname: mongodb-primary
-        image: mongo:4.4
+        image: mongo:latest
         restart: always
-        build: ./db
+        build:
+            context: ../
+            dockerfile: db.Dockerfile
         volumes:
             - ./db/data/primary:/data/db
         ports:
             - "27017:27017"
-        depends_on:
-            - mongodb-secondary-0
-            - mongodb-secondary-1
-        links:
-            - mongodb-secondary-0
-            - mongodb-secondary-1
         networks:
             - mongodb-network
         command: ["--bind_ip_all", "--replSet", "rs0", "--auth", "--keyFile", "/data/replica.key"]
@@ -24,48 +20,11 @@ services:
             - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USERNAME}
             - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_PASSWORD}
             - MONGO_INITDB_ROOT_DATABASE=chat
-    mongodb-secondary-0:
-        container_name: mongodb-secondary-0
-        hostname: mongodb-secondary-0
-        image: mongo:4.4
-        restart: always
-        build: ./db
-        volumes:
-            - ./db/data/secondary-0:/data/db
-        ports:
-            - "27018:27017"
-        networks:
-            - mongodb-network
-        command: ["--bind_ip_all", "--replSet", "rs0", "--auth", "--keyFile", "/data/replica.key"]
-        environment:
-            - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USERNAME}
-            - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_PASSWORD}
-            - MONGO_INITDB_ROOT_DATABASE=chat
-    mongodb-secondary-1:
-        container_name: mongodb-secondary-1
-        hostname: mongodb-secondary-1
-        image: mongo:4.4
-        restart: always
-        build: ./db
-        volumes:
-            - ./db/data/secondary-1:/data/db
-        ports:
-            - "27019:27017"
-        networks:
-            - mongodb-network
-        command: ["--bind_ip_all", "--replSet", "rs0", "--auth", "--keyFile", "/data/replica.key"]
-        environment:
-            - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USERNAME}
-            - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_PASSWORD}
-            - MONGO_INITDB_ROOT_DATABASE=chat
-
     mongoinit:
-        image: mongo:4.4
+        image: mongo:latest
         restart: "on-failure:5"
         depends_on:
             - mongodb-primary
-            - mongodb-secondary-0
-            - mongodb-secondary-1
         environment:
             - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USERNAME}
             - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_PASSWORD}
