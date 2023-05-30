@@ -1,0 +1,9 @@
+services:
+    chat:
+        build:
+            context: ../
+            dockerfile: chat.Dockerfile
+        hostname: chat
+        container_name: chat
+        ports:
+            - "80:80"

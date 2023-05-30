@@ -14,17 +14,7 @@ var config = {
         {
             "_id": 1,
             "host": "mongodb-primary:27017",
-            "priority": 2
-        },
-        {
-            "_id": 2,
-            "host": "mongodb-secondary-0:27017",
-            "priority": 1
-        },
-        {
-            "_id": 3,
-            "host": "mongodb-secondary-1:27017",
-            "priority": 1
+            "priority": 0
         }
     ]
 };
