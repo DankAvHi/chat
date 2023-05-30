@@ -19,7 +19,7 @@ app.use(
 );
 
 app.use(express.static(config.clientPath));
-app.get("*", (req, res) => res.sendFile(config.clientIndexFile));
+app.get("*", (_req, res) => res.sendFile(config.clientIndexFile));
 
 export const startApp = () =>
   checkPrismaDatabaseConnection()
