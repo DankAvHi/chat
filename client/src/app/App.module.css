@@ -7,9 +7,6 @@
 }
 
 .chat {
-    border: 4px solid black;
-    border-radius: 12px;
-
     max-width: 480px;
     max-height: 720px;
     width: 100%;
@@ -19,10 +16,54 @@
     flex-direction: column;
 }
 
+@media screen and (min-width: 480px) {
+    .chat {
+        border: 4px solid black;
+        border-radius: 12px;
+    }
+}
+
 .messages {
     padding: 12px;
 
     height: 100%;
+    overflow-y: auto;
+    scroll-behavior: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.messageWrapper {
+    border: 2px solid black;
+    border-radius: 12px;
+
+    padding: 12px;
+    padding-bottom: 2px;
+
+    max-width: 320px;
+    width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.messageWrapper_user {
+    align-self: flex-end;
+}
+
+.messageWrapper_friend {
+    align-self: flex-start;
+}
+
+.messageTime {
+    align-self: flex-end;
+
+    font-size: 10px;
+}
+
+.message {
 }
 
 .chatForm {
