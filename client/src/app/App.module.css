@@ -1,2 +1,55 @@
 .App {
+    height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat {
+    border: 4px solid black;
+    border-radius: 12px;
+
+    max-width: 480px;
+    max-height: 720px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.messages {
+    padding: 12px;
+
+    height: 100%;
+}
+
+.chatForm {
+    border-top: 2px solid black;
+
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chatInput {
+    outline: 2px solid black;
+    border-radius: 6px;
+
+    padding: 2px;
+
+    width: 100%;
+}
+
+.chatSubmit {
+    border-radius: 12px;
+
+    padding: 6px 12px;
+
+    background-color: teal;
+
+    color: whitesmoke;
 }
