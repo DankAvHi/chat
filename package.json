@@ -4,12 +4,13 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "client:build": "(cd client && pnpm run build)",
+        "server:build": "echo server build",
+        "build": "pnpm run client:build && pnpm run server:build",
+        "client:dev": "(cd client && pnpm run dev)",
         "server:dev": "nodemon server/src/index.ts"
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "socket.io": "^4.7.2"
-    }
+    "license": "ISC"
 }
